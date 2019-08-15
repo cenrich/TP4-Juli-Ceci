@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+    overflow: hidden;
+    padding:0;
+    margin:0;
+}
+
+#header {
+    display:flex;
+}
+
+#logo {
+    background: url("../images/unicorn.png");
+    background-size: cover;
+    background-color:#fadadd;
+    height:80px;
+    width:80px;
+}
+
+#searchBox {
+    display:flex;
+    height:80px;
+    padding:10px;
+    position: fixed;
+    top:0;
+    left:80px
+}
+
+#searchIcon {
+    background: url("../images/search.png") center center;
+    background-size:40%;
+    background-repeat: no-repeat;
+    height:60px;
+    width:60px;
+}
+
+#searchInput {
+    border:none;
+    width:70vw;
+    &:focus {
+        outline:none;
+    }
+}
+
+#navBar {
+    width:80px;
+    height:100vh;
+    padding:10px;
+    position: fixed;
+    top:80px;
+    left:0;
+    background-color:#fff;
+    position:absolute;
+    z-index: 999;
+}
+
+.button {
+    font-size: 10px;
+    text-transform: uppercase;
+    text-align:center;
+    a {
+        text-decoration: none;
+        color:gray;
+        &:visited {
+            color:gray;
+        }
+    }
+}
+
+#popularIcon {
+    background: url("../images/popular.png") center center;
+    background-size:40%;
+    background-repeat: no-repeat;
+    height:60px;
+    width:60px;
+}
+
+#topRatedIcon {
+    background: url("../images/top_rated.png") center center;
+    background-size:40%;
+    background-repeat: no-repeat;
+    height:60px;
+    width:60px;
+}
+
+#upcomingIcon {
+    background: url("../images/upcoming.png") center center;
+    background-size:40%;
+    background-repeat: no-repeat;
+    height:60px;
+    width:60px;
+}
+
+#nowPlayingIcon {
+    background: url("../images/now_playing.png") center center;
+    background-size:40%;
+    background-repeat: no-repeat;
+    height:60px;
+    width:60px;
+}
+
+#mainContainer {
+    background-color: #efe5e6;
+    height:100vh;
+    width:100vw;
+}
+
+#imageContainer {
+    background: url("../images/lego.jpg") top center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    opacity:0.5;
+    height:320px;
+}
+
