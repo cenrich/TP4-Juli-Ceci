@@ -1,12 +1,17 @@
 * {
     box-sizing: border-box;
-    overflow: hidden;
     padding:0;
     margin:0;
+    list-style: none
 }
 
 #header {
     display:flex;
+    position:fixed;
+    top:0;
+    left:0;
+    background-color:#fff;
+    width:100%
 }
 
 #logo {
@@ -21,9 +26,6 @@
     display:flex;
     height:80px;
     padding:10px;
-    position: fixed;
-    top:0;
-    left:80px
 }
 
 #searchIcon {
@@ -50,8 +52,8 @@
     top:80px;
     left:0;
     background-color:#fff;
-    position:absolute;
-    z-index: 999;
+    // position:absolute;
+    // z-index: 999;
 }
 
 .button {
@@ -101,15 +103,31 @@
 
 #mainContainer {
     background-color: #efe5e6;
-    height:100vh;
-    width:100vw;
+    margin-top:80px;
+    margin-left:80px;
 }
 
 #imageContainer {
     background: url("../images/lego.jpg") top center;
     background-size:cover;
     background-repeat: no-repeat;
-    opacity:0.5;
+    overflow: hidden;
     height:320px;
+    // opacity:0.5
 }
 
+#popularList {
+    display:flex;
+    align-content: space-between
+}
+
+.movieBox {
+    width:200px;
+    margin:15px;
+    overflow:hidden;
+
+}
+
+.moviePoster {
+    width:100%
+}
