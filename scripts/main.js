@@ -1,5 +1,6 @@
 // Limpiar el input cuando salgo del focus
 const apiKey="f800b0f5b9ae24d9ff462e770da4d3b3"
+const movieId=429203
 
 
 fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`)
@@ -21,4 +22,21 @@ fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`)
             li.appendChild(movieTitle)
             popularNode.appendChild(li)
         });
+    })
+
+fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`)
+    .then(response => response.json())
+    .then(res => {
+        // console.log(`https://image.tmdb.org/t/p/w500${res.poster_path}`)
+        // document.getElementById("upperModal").style.backgroundImage = "url(`https://cdn2.traveler.es/uploads/images/thumbs/201538/la_toscana_945743973_1000x748.jpg`)";
+        const mainTitleNode = document.getElementById("mainTitle")
+        mainTitleNode.innerText = res.title
+        // const sloganNode = res.title
+        const descriptionNode =document.getElementById("movieDescription")
+        descriptionNode.innerText=res.overview
+        // const genreNode = document.getElementById("genre")
+        // console.log(res.genres)
+        // const aux = res.genres.map(e=>res.genres[e])
+        // console.log(aux)
+        
     })

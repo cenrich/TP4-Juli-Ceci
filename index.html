@@ -63,16 +63,27 @@
             <span id="nowPlayingCount"></span>
             <ul id="nowPlayingList"></ul>
         </div>
-        <div id="modal">
-            <div id="upperModal">
-                <h2 id="mainTitle"></h2>
-                <p id="slogan"></p>
+        <div id="modalContainer" class="hide">
+            <div id="modal">
+                <div id="upperModal">
+                    <button type="button" onclick="closeWindow()">Cerrar</button>
+                    <!-- <img id="fadedPoster"> -->
+                    <h2 id="mainTitle"></h2>
+                    <p id="slogan"></p>
+                </div>
+                <div id="lowerModal">
+                    <p id="movieDescription"></p>
+                    <div>
+                        <h4 class="modalTitle">GÉNERO</h4>
+                        <p id="genre"></p>
+                    </div>
+                    <div>
+                        <h4 class="modalTitle">FECHA DE LANZAMIENTO</h4>
+                        <p id="releaseDate"></p>
+                    </div>
+                </div>
+                <div id="largePoster"></div>
             </div>
-            <div id="lowerModal">
-                <p id="description"></p>
-                <h4 id=""
-            </div>
-            <div id="largePoster"></div>
         </div>
     </section>
 </body>

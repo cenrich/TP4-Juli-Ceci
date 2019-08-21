@@ -131,3 +131,31 @@
 .moviePoster {
     width:100%
 }
+
+#modalContainer {
+    width:100vw;
+    height:100vh;
+    background-color:rgba(250, 218, 221, 0.9);
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 99;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+#modal {
+    height:80%;
+    width:50%;
+}
+
+#upperModal {
+    height:50%;
+    background-color:aqua;
+}
+
+#lowerModal {
+    height:50%;
+    background-color: antiquewhite
+}
