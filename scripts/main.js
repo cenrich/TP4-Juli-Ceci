@@ -28,15 +28,17 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`)
     .then(response => response.json())
     .then(res => {
         // console.log(`https://image.tmdb.org/t/p/w500${res.poster_path}`)
-        // document.getElementById("upperModal").style.backgroundImage = "url(`https://cdn2.traveler.es/uploads/images/thumbs/201538/la_toscana_945743973_1000x748.jpg`)";
+        const backgroundNode=document.getElementById("upperModal")
+        // backgroundNode.style.backgroundImage = "url(`https://image.tmdb.org/t/p/w500${res.poster_path}`)";
         const mainTitleNode = document.getElementById("mainTitle")
         mainTitleNode.innerText = res.title
         // const sloganNode = res.title
         const descriptionNode =document.getElementById("movieDescription")
         descriptionNode.innerText=res.overview
-        // const genreNode = document.getElementById("genre")
-        // console.log(res.genres)
-        // const aux = res.genres.map(e=>res.genres[e])
-        // console.log(aux)
-        
+        const genreNode = document.getElementById("genre")
+        res.genres.forEach(({name})=>genreNode.innerText+=`${name}
+                                                                    `)
+        const releaseDateNode = document.getElementById("releaseDate")
+        releaseDateNode.innerText = res.release_date 
+                
     })
