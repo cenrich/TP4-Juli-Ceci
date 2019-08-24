@@ -132,7 +132,7 @@
     width:100%
 }
 
-#modalContainer {
+#modalBackground {
     width:100vw;
     height:100vh;
     background-color:rgba(250, 218, 221, 0.9);
@@ -143,6 +143,10 @@
     display:flex;
     align-items:center;
     justify-content:center;
+}
+
+#modalContainer {
+    display:none
 }
 
 #modal {
@@ -159,3 +163,11 @@
     height:50%;
     background-color: antiquewhite
 }
+
+.mystyle {
+    width: 100%;
+    padding: 25px;
+    background-color: coral;
+    color: white;
+    font-size: 25px;
+  }

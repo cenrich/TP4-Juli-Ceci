@@ -21,7 +21,7 @@
             <input id="searchInput" placeholder="Ingresá acá una película que te ayudo">
         </div>
     </header>
-    <nav id="navBar">
+    <!-- <nav id="navBar">
         <ul>
             <li class="button"><a href="#">
                     <div class="icon" id="popularIcon"></div>
@@ -40,7 +40,7 @@
                     <p>En cartel</p>
                 </a></li>
         </ul>
-    </nav>
+    </nav> -->
     <section id="mainContainer">
         <div id="imageContainer"></div>
         <div id="popularContainer">
@@ -64,28 +64,31 @@
             <ul id="nowPlayingList"></ul>
         </div>
         <div id="modalContainer" class="hide">
-            <div id="modal">
-                <div id="upperModal">
-                    <button type="button" onclick="closeWindow()">Cerrar</button>
-                    <!-- <img id="fadedPoster"> -->
-                    <h2 id="mainTitle"></h2>
-                    <p id="slogan"></p>
-                </div>
-                <div id="lowerModal">
-                    <p id="movieDescription"></p>
-                    <div>
-                        <h4 class="modalTitle">GÉNERO</h4>
-                        <p id="genre"></p>
+            <div id="modalBackground">
+                <div id="modal">
+                    <div id="upperModal">
+                        <button type="button" onclick="toggleFunction()">Cerrar</button>
+                        <!-- <img id="fadedPoster"> -->
+                        <h2 id="mainTitle"></h2>
+                        <p id="slogan"></p>
                     </div>
-                    <div>
-                        <h4 class="modalTitle">FECHA DE LANZAMIENTO</h4>
-                        <p id="releaseDate"></p>
+                    <div id="lowerModal">
+                        <p id="movieDescription"></p>
+                        <div>
+                            <h4 class="modalTitle">GÉNERO</h4>
+                            <p id="genre"></p>
+                        </div>
+                        <div>
+                            <h4 class="modalTitle">FECHA DE LANZAMIENTO</h4>
+                            <p id="releaseDate"></p>
+                        </div>
                     </div>
+                    <div id="largePoster"></div>
                 </div>
-                <div id="largePoster"></div>
             </div>
         </div>
     </section>
+
 </body>
 
 </html>
