@@ -72,11 +72,24 @@ const searchFunction = () => {
 const printResults = (movies) => {
     const container = document.getElementById("results")
     container.innerHTML=""
-    movies.forEach (movie=> {
-        let mov = document.createElement("li")
-        mov.innerText = movie.title === movie.original_title? movie.title : `${movie.title} (${movie.original_title})`
-        mov.onclick = () => toggleFunction(movie.id)
-        container.appendChild(mov)
+    //ojo que de acá para adelante está repetido con la primera
+    movies.forEach(({title,original_title,poster_path, id})=>{
+        const a = document.createElement("a")
+        a.classList.add("movieLink")
+        a.href="#"
+        const li = document.createElement("li")
+        li.classList.add("movieBox")
+        li.onclick = () =>toggleFunction(id)
+        const image = document.createElement("img")
+        image.src=`https://image.tmdb.org/t/p/w500/${poster_path}`
+        image.classList.add("moviePoster")
+        a.appendChild(image)
+        const movieTitle = document.createElement("span")
+        movieTitle.innerText===original_title? title : `${title} (${original_title})`//este pedacito es distinto
+        movieTitle.classList.add("movieTitle")
+        a.appendChild(movieTitle)
+        li.appendChild(a)
+        container.appendChild(li)
     })
 }
 
