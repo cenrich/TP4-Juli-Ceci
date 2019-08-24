@@ -1,39 +1,47 @@
-// Limpiar el input cuando salgo del focus
 const apiKey="f800b0f5b9ae24d9ff462e770da4d3b3"
+let currentPage
 
 
-fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`)
-    .then(response => response.json())
-    .then(res => {
-        console.log(res.results[0]) 
-        const popularNode = document.getElementById("popularList")
-        const topFive = res.results.filter((e,i)=>i<5)
-        topFive.forEach(({title,poster_path, id})=>{
-            const a = document.createElement("a")
-            a.classList.add("movieLink")
-            a.href="#"
-            const li = document.createElement("li")
-            li.classList.add("movieBox")
-            li.onclick = () =>toggleFunction(id)
-            const image = document.createElement("img")
-            image.src=`https://image.tmdb.org/t/p/w500/${poster_path}`
-            image.classList.add("moviePoster")
-            a.appendChild(image)
-            const movieTitle = document.createElement("span")
-            movieTitle.innerText=title
-            movieTitle.classList.add("movieTitle")
-            a.appendChild(movieTitle)
-            li.appendChild(a)
-            popularNode.appendChild(li)
-        });
-    })
+const homePage = () => {
+    const popularNode = document.getElementById("popularList")
+    popularNode.innerHTML=""
+//las próximas 3 líneas probablemente deberían ser algún tipo de función de limpieza
+    document.getElementById("mainContainer").style.display="block"
+    document.getElementById("results").innerHTML = ""
+    document.getElementById("categoryResults").innerHTML = ""
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`)
+        .then(response => response.json())
+        .then(res => {
+            console.log(res.results[0]) 
+            const topFive = res.results.filter((e,i)=>i<5)
+//de acá para adelante es lo que repito muchas veces, armar función relinda
+            topFive.forEach(({title,poster_path, id})=>{
+                const a = document.createElement("a")
+                a.classList.add("movieLink")
+                a.href="#"
+                a.onclick = () =>toggleFunction(id)
+                const li = document.createElement("li")
+                li.classList.add("movieBox")
+                const image = document.createElement("img")
+                image.src=`https://image.tmdb.org/t/p/w500/${poster_path}`
+                image.classList.add("moviePoster")
+                a.appendChild(image)
+                const movieTitle = document.createElement("span")
+                movieTitle.innerText=title
+                movieTitle.classList.add("movieTitle")
+                a.appendChild(movieTitle)
+                li.appendChild(a)
+                popularNode.appendChild(li)
+            });
+        })
+}
 
 const loadModal = (movieId) =>{
     fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`)
     .then(response => response.json())
     .then(res => {
-        // console.log(`https://image.tmdb.org/t/p/w500${res.poster_path}`)
-        const backgroundNode=document.getElementById("upperModal")
+        console.log(`https://image.tmdb.org/t/p/w500${res.poster_path}`)
+        // const backgroundNode=document.getElementById("upperModal")
         // backgroundNode.style.backgroundImage = "url(`https://image.tmdb.org/t/p/w500${res.poster_path}`)";
         const mainTitleNode = document.getElementById("mainTitle")
         mainTitleNode.innerText = res.title
@@ -72,14 +80,17 @@ const searchFunction = () => {
 const printResults = (movies) => {
     const container = document.getElementById("results")
     container.innerHTML=""
+    //ver eso de función de limpieza
+    document.getElementById("mainContainer").style.display="none"
+    document.getElementById("categoryResults").innerHTML=""
     //ojo que de acá para adelante está repetido con la primera
     movies.forEach(({title,original_title,poster_path, id})=>{
         const a = document.createElement("a")
         a.classList.add("movieLink")
         a.href="#"
+        a.onclick = () =>toggleFunction(id)
         const li = document.createElement("li")
         li.classList.add("movieBox")
-        li.onclick = () =>toggleFunction(id)
         const image = document.createElement("img")
         image.src=`https://image.tmdb.org/t/p/w500/${poster_path}`
         image.classList.add("moviePoster")
@@ -102,14 +113,17 @@ const selectCategory = (category) => {
 const printCategory = (movies) => {
     let container = document.getElementById("categoryResults")
     container.innerHTML=""
+    //ver eso de función de limpieza
+    document.getElementById("mainContainer").style.display="none"
+    document.getElementById("results").innerHTML=""
     //ojo que de acá para adelante está repetido con la primera
     movies.forEach(({title,poster_path, id})=>{
         const a = document.createElement("a")
         a.classList.add("movieLink")
         a.href="#"
+        a.onclick = () =>toggleFunction(id)
         const li = document.createElement("li")
         li.classList.add("movieBox")
-        li.onclick = () =>toggleFunction(id)
         const image = document.createElement("img")
         image.src=`https://image.tmdb.org/t/p/w500/${poster_path}`
         image.classList.add("moviePoster")

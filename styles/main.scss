@@ -5,6 +5,10 @@
     list-style: none
 }
 
+body {
+        background-color: #efe5e6;
+}
+
 #header {
     display:flex;
     position:fixed;
@@ -101,8 +105,7 @@
     width:60px;
 }
 
-#mainContainer {
-    background-color: #efe5e6;
+.bigContainer {
     margin-top:80px;
     margin-left:80px;
 }
@@ -116,8 +119,9 @@
     // opacity:0.5
 }
 
-#popularList {
+.movieList {
     display:flex;
+    flex-wrap:wrap;
     align-content: space-between
 }
 
@@ -132,21 +136,21 @@
     width:100%
 }
 
-#modalBackground {
-    width:100vw;
-    height:100vh;
-    background-color:rgba(250, 218, 221, 0.9);
+#modalContainer {
+    display:none;
     position: fixed;
     top:0;
     left:0;
     z-index: 99;
+}
+
+#modalBackground {
+    width:100vw;
+    height:100vh;
+    background-color:rgba(250, 218, 221, 0.9);
     display:flex;
     align-items:center;
     justify-content:center;
-}
-
-#modalContainer {
-    display:none
 }
 
 #modal {
@@ -163,11 +167,3 @@
     height:50%;
     background-color: antiquewhite
 }
-
-.mystyle {
-    width: 100%;
-    padding: 25px;
-    background-color: coral;
-    color: white;
-    font-size: 25px;
-  }

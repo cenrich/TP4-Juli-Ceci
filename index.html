@@ -11,9 +11,9 @@
     <script src="scripts/main.js" type="text/javascript"></script>
 </head>
 
-<body>
+<body onload="homePage()">
     <header id="header">
-        <a href="#">
+        <a href="#" onclick="homePage()">
             <div id="logo"></div>
         </a>
         <div id="searchBox">
@@ -23,74 +23,81 @@
     </header>
     <nav id="navBar">
         <ul>
-            <li class="button" onclick="selectCategory('popular')"><a href="#">
+            <li class="button" onclick="selectCategory('popular')">
+                <a href="#">
                     <div class="icon" id="popularIcon"></div>
                     <p>Más vistas</p>
-                </a></li>
-            <li class="button" onclick="selectCategory('top_rated')"><a href="#">
+                </a>
+            </li>
+            <li class="button" onclick="selectCategory('top_rated')">
+                <a href="#">
                     <div class="icon" id="topRatedIcon"></div>
                     <p>Mejor puntuadas</p>
-                </a></li>
-            <li class="button" onclick="selectCategory('upcoming')"><a href="#">
+                </a>
+            </li>
+            <li class="button" onclick="selectCategory('upcoming')">
+                <a href="#">
                     <div class="icon" id="upcomingIcon"></div>
                     <p>Pronto</p>
-                </a></li>
-            <li class="button" onclick="selectCategory('now_playing')"><a href="#">
+                </a>
+            </li>
+            <li class="button" onclick="selectCategory('now_playing')">
+                <a href="#">
                     <div class="icon" id="nowPlayingIcon"></div>
                     <p>En cartel</p>
-                </a></li>
+                </a>
+            </li>
         </ul>
     </nav>
-    <section id="mainContainer">
+    <section id="mainContainer" class="bigContainer">
         <div id="imageContainer"></div>
         <div id="popularContainer">
             <h3>Más vistas</h3>
             <span id="popularCount"></span>
-            <ul id="popularList"></ul>
+            <ul id="popularList"class="movieList"></ul>
         </div>
         <div id="topRatedContainer">
             <h3>Mejor puntuadas</h3>
             <span id="topRatedCount"></span>
-            <ul id="topRatedList"></ul>
+            <ul id="topRatedList" class="movieList"></ul>
         </div>
         <div id="upcomingContainer">
             <h3>Pronto</h3>
             <span id="upcomingCount"></span>
-            <ul id="upcomingList"></ul>
+            <ul id="upcomingList" class="movieList"></ul>
         </div>
         <div id="nowPlayingContainer">
             <h3>En cartelera</h3>
             <span id="nowPlayingCount"></span>
-            <ul id="nowPlayingList"></ul>
-        </div>
-        <div id="modalContainer" class="hide">
-            <div id="modalBackground">
-                <div id="modal">
-                    <div id="upperModal">
-                        <button type="button" onclick="toggleFunction()">Cerrar</button>
-                        <!-- <img id="fadedPoster"> -->
-                        <h2 id="mainTitle"></h2>
-                        <p id="slogan"></p>
-                    </div>
-                    <div id="lowerModal">
-                        <p id="movieDescription"></p>
-                        <div>
-                            <h4 class="modalTitle">GÉNERO</h4>
-                            <p id="genre"></p>
-                        </div>
-                        <div>
-                            <h4 class="modalTitle">FECHA DE LANZAMIENTO</h4>
-                            <p id="releaseDate"></p>
-                        </div>
-                    </div>
-                    <div id="largePoster"></div>
-                </div>
-            </div>
+            <ul id="nowPlayingList" class="movieList"></ul>
         </div>
     </section>
-    <ul id="results"></ul>
-    <ul id="categoryResults"></ul>
-
+    <section class="bigContainer"><ul id="results" class="movieList"></ul></section>
+    <section class="bigContainer"><ul id="categoryResults" class="movieList"></ul></section>
+    <div id="modalContainer" class="hide">
+        <div id="modalBackground">
+            <div id="modal">
+                <div id="upperModal">
+                    <button type="button" onclick="toggleFunction()">Cerrar</button>
+                    <!-- <img id="fadedPoster"> -->
+                    <h2 id="mainTitle"></h2>
+                    <p id="slogan"></p>
+                </div>
+                <div id="lowerModal">
+                    <p id="movieDescription"></p>
+                    <div>
+                        <h4 class="modalTitle">GÉNERO</h4>
+                        <p id="genre"></p>
+                    </div>
+                    <div>
+                        <h4 class="modalTitle">FECHA DE LANZAMIENTO</h4>
+                        <p id="releaseDate"></p>
+                    </div>
+                </div>
+                <div id="largePoster"></div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
