@@ -24,7 +24,6 @@ body {
   background-color: #efe5e6;
   height: 80px;
   width: 80px;
-  border-radius: 5px;
 }
 
 #searchBox {
@@ -175,17 +174,29 @@ body {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34de7de46acab6a310481b94c2bb4ff988458357
 .movieTitle {
   font-size: 11px;
   margin: 0;
   letter-spacing: 0.5px;
   transition: color 0.5s ease;
   color: gray;
+<<<<<<< HEAD
+=======
+  text-decoration: none;
+>>>>>>> 34de7de46acab6a310481b94c2bb4ff988458357
 }
 
 .movieTitle :hover {
   color: black;
+<<<<<<< HEAD
 =======
+=======
+}
+
+>>>>>>> 34de7de46acab6a310481b94c2bb4ff988458357
 #modalContainer {
   display: none;
   position: fixed;
@@ -217,6 +228,42 @@ body {
   height: 50%;
   background-color: antiquewhite;
 >>>>>>> a74214f86c075236f5ba8c635b0fc68c6a91c3f0
+}
+
+#popularContainer {
+  font-family: sans-serif;
+}
+
+#titleSection {
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 50;
+  padding: 15px;
+}
+
+#verTodas {
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 25px;
+}
+
+#aVerTodas {
+  text-decoration: none;
+  transition: color 0.5s ease;
+  color: grey;
+  float: right;
+}
+
+.fas {
+  color: grey;
+}
+
+#verTodas :hover {
+  color: #081c24;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -24,7 +24,6 @@ body {
     background-color:#efe5e6;
     height:80px;
     width:80px;
-    border-radius: 5px
 }
 
 #searchBox {
@@ -184,6 +183,23 @@ body {
     letter-spacing: .5px;
     transition: color .5s ease;
     color: gray;
+    text-decoration:none;
+}
+
+.movieTitle :hover{
+    color: black;
+}
+
+// .moviePoster :hover span {
+//     width: 120%;
+// }
+
+#modalContainer {
+    display:none;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 99;
 }
 
 .movieTitle :hover{
@@ -195,3 +211,45 @@ body {
 // }
 
 
+#lowerModal {
+    height:50%;
+    background-color: antiquewhite
+}
+
+#popularContainer {
+    font-family: sans-serif;
+    
+}
+
+#titleSection {
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 50;
+    padding: 15px;
+}
+
+#verTodas {
+    
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: .5px;  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 25px;
+}
+
+#aVerTodas {
+    text-decoration: none;
+    transition: color .5s ease;
+    color: grey;
+    float: right;
+}
+
+.fas  {
+    color: grey;
+}
+
+#verTodas :hover {
+    color: #081c24;
+}

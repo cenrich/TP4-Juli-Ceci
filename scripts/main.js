@@ -40,6 +40,7 @@ const populateList = (arrayOfMovies,container) =>{
         movieTitle.classList.add("movieTitle")
         a.appendChild(image)
         a.appendChild(movieTitle)
+        a.classList.add("movieTitle")
         li.appendChild(a)
         container.appendChild(li)
     })
