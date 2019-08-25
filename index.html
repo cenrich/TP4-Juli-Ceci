@@ -27,7 +27,6 @@
                 <a href="#">
                     <div class="icon" id="popularIcon"></div>
                     <p>Más vistas</p>
-                </a>
             </li>
             <li class="button" onclick="selectCategory('top_rated')">
                 <a href="#">
@@ -53,28 +52,32 @@
         <div id="imageContainer"></div>
         <div id="popularContainer">
             <h3>Más vistas</h3>
-            <span id="popularCount"></span>
-            <ul id="popularList"class="movieList"></ul>
+            <a href="#" onclick="selectCategory('popular')">Ver todas </a>
+            <ul id="popular"class="movieList"></ul>
         </div>
         <div id="topRatedContainer">
             <h3>Mejor puntuadas</h3>
-            <span id="topRatedCount"></span>
-            <ul id="topRatedList" class="movieList"></ul>
+            <a href="#" onclick="selectCategory('top_rated')">Ver todas </a>
+            <ul id="top_rated" class="movieList"></ul>
         </div>
         <div id="upcomingContainer">
             <h3>Pronto</h3>
-            <span id="upcomingCount"></span>
-            <ul id="upcomingList" class="movieList"></ul>
+            <a href="#" onclick="selectCategory('upcoming')">Ver todas </a>
+            <ul id="upcoming" class="movieList"></ul>
         </div>
         <div id="nowPlayingContainer">
             <h3>En cartelera</h3>
-            <span id="nowPlayingCount"></span>
-            <ul id="nowPlayingList" class="movieList"></ul>
+            <a href="#" onclick="selectCategory('now_playing')">Ver todas </a>
+            <ul id="now_playing" class="movieList"></ul>
         </div>
     </section>
-    <section class="bigContainer"><ul id="results" class="movieList"></ul></section>
-    <section class="bigContainer"><ul id="categoryResults" class="movieList"></ul></section>
-    <div id="modalContainer" class="hide">
+    <section id="resultsContainer" class="bigContainer">
+        <ul id="results" class="movieList"></ul>
+    </section>
+    <section  id="catResContainer" class="bigContainer">
+        <ul id="categoryResults" class="movieList"></ul>
+    </section>
+    <div id="modalContainer">
         <div id="modalBackground">
             <div id="modal">
                 <div id="upperModal">

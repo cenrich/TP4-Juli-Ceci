@@ -1,40 +1,49 @@
 const apiKey="f800b0f5b9ae24d9ff462e770da4d3b3"
-let currentPage
+let currentPage=2
 
+const clearAll = () => {
+    document.getElementById("mainContainer").style.display="none"
+    document.getElementById("results").parentNode.style.display="none"
+    document.getElementById("categoryResults").parentNode.style.display="none"
+}
 
 const homePage = () => {
-    const popularNode = document.getElementById("popularList")
-    popularNode.innerHTML=""
-//las próximas 3 líneas probablemente deberían ser algún tipo de función de limpieza
+    clearAll()
     document.getElementById("mainContainer").style.display="block"
-    document.getElementById("results").innerHTML = ""
-    document.getElementById("categoryResults").innerHTML = ""
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`)
-        .then(response => response.json())
-        .then(res => {
-            console.log(res.results[0]) 
-            const topFive = res.results.filter((e,i)=>i<5)
-//de acá para adelante es lo que repito muchas veces, armar función relinda
-            topFive.forEach(({title,poster_path, id})=>{
-                const a = document.createElement("a")
-                a.classList.add("movieLink")
-                a.href="#"
-                a.onclick = () =>toggleFunction(id)
-                const li = document.createElement("li")
-                li.classList.add("movieBox")
-                const image = document.createElement("img")
-                image.src=`https://image.tmdb.org/t/p/w500/${poster_path}`
-                image.classList.add("moviePoster")
-                a.appendChild(image)
-                const movieTitle = document.createElement("span")
-                movieTitle.innerText=title
-                movieTitle.classList.add("movieTitle")
-                a.appendChild(movieTitle)
-                li.appendChild(a)
-                popularNode.appendChild(li)
-            });
-        })
+    populateCatHome("popular")
+    populateCatHome("top_rated")
+    populateCatHome("upcoming")
+    populateCatHome("now_playing")
 }
+
+const populateCatHome = (category) => {
+    const container = document.getElementById(category)
+    container.innerHTML=""
+    fetch(`https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}`)
+        .then(response => response.json())
+        .then(res => populateList(res.results.filter((e,i)=>i<5),container))
+}
+
+const populateList = (arrayOfMovies,container) =>{
+    arrayOfMovies.forEach(({title,poster_path, id})=>{
+        const li = document.createElement("li")
+        li.classList.add("movieBox")
+        const a = document.createElement("a")
+        a.classList.add("movieLink")
+        a.href="#"
+        a.onclick = () =>toggleFunction(id)
+        const image = document.createElement("img")
+        image.src=`https://image.tmdb.org/t/p/w500/${poster_path}` //acá si no existe poster_path, a veces se saltea directamente la película
+        image.classList.add("moviePoster")
+        const movieTitle = document.createElement("span")
+        movieTitle.innerText=title //acá para el caso de búsqueda me gustaría hacer como en clase
+        movieTitle.classList.add("movieTitle")
+        a.appendChild(image)
+        a.appendChild(movieTitle)
+        li.appendChild(a)
+        container.appendChild(li)
+    })
+}    
 
 const loadModal = (movieId) =>{
     fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`)
@@ -78,61 +87,65 @@ const searchFunction = () => {
 }
 
 const printResults = (movies) => {
+    clearAll()
     const container = document.getElementById("results")
     container.innerHTML=""
-    //ver eso de función de limpieza
-    document.getElementById("mainContainer").style.display="none"
-    document.getElementById("categoryResults").innerHTML=""
-    //ojo que de acá para adelante está repetido con la primera
-    movies.forEach(({title,original_title,poster_path, id})=>{
-        const a = document.createElement("a")
-        a.classList.add("movieLink")
-        a.href="#"
-        a.onclick = () =>toggleFunction(id)
-        const li = document.createElement("li")
-        li.classList.add("movieBox")
-        const image = document.createElement("img")
-        image.src=`https://image.tmdb.org/t/p/w500/${poster_path}`
-        image.classList.add("moviePoster")
-        a.appendChild(image)
-        const movieTitle = document.createElement("span")
-        movieTitle.innerText===original_title? title : `${title} (${original_title})`//este pedacito es distinto
-        movieTitle.classList.add("movieTitle")
-        a.appendChild(movieTitle)
-        li.appendChild(a)
-        container.appendChild(li)
-    })
+    container.parentNode.style.display="block"
+    populateList(movies,container)
 }
 
 const selectCategory = (category) => {
     fetch (`https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}`)
         .then(res=>res.json())
-        .then(res=>printCategory(res.results))
+        .then(res=>printCategory(res.results,category,res.total_results))
 }
 
-const printCategory = (movies) => {
+const printCategory = (movies,category,totalResults) => {
+    clearAll()
     let container = document.getElementById("categoryResults")
+    container.parentNode.style.display="block"
     container.innerHTML=""
-    //ver eso de función de limpieza
-    document.getElementById("mainContainer").style.display="none"
-    document.getElementById("results").innerHTML=""
-    //ojo que de acá para adelante está repetido con la primera
-    movies.forEach(({title,poster_path, id})=>{
-        const a = document.createElement("a")
-        a.classList.add("movieLink")
-        a.href="#"
-        a.onclick = () =>toggleFunction(id)
-        const li = document.createElement("li")
-        li.classList.add("movieBox")
-        const image = document.createElement("img")
-        image.src=`https://image.tmdb.org/t/p/w500/${poster_path}`
-        image.classList.add("moviePoster")
-        a.appendChild(image)
-        const movieTitle = document.createElement("span")
-        movieTitle.innerText=title
-        movieTitle.classList.add("movieTitle")
-        a.appendChild(movieTitle)
-        li.appendChild(a)
-        container.appendChild(li)
-    });
+    console.log(setCatTitle(category,totalResults)) //corté acá, estoy tratando de agregar título dinámicamente
+    container.parentNode.appendChild(setCatTitle(category,totalResults))
+    populateList(movies,container)
+    setButton(container,category)
+}
+
+const setCatTitle = (category,totalResults) => {
+    const header = document.createElement("div")
+    const title = document.createElement("h3")
+    switch (category) {
+        case "popular":
+            title.innerText="Más vistas";
+        break;
+        case "top_rated":
+            title.innerText="Mejor puntuadas";
+        break;
+        case "upcoming":
+            title.innerText="Pronto"
+        break;
+        case "now_playing":
+            title.innerText="En cartel"
+    }
+    const categoryCount = document.createElement("a")
+    categoryCount.innerText=`${totalResults} resultados`
+    header.appendChild(title)
+    header.appendChild(categoryCount)
+    return header
+}
+
+const setButton = (container,category) => {
+    const loadMoreNode = document.createElement("button")
+    loadMoreNode.innerText="Más resultados"
+    loadMoreNode.onclick=()=>loadMore(category)
+    container.parentNode.appendChild(loadMoreNode)
+}
+
+const loadMore = (category) => {
+    const container = document.getElementById("categoryResults")
+    fetch(`https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}&page=${currentPage}`)
+    // fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&page=${currentPage}`)
+        .then(response => response.json())
+        .then(res => populateList(res.results,container))
+    currentPage++
 }

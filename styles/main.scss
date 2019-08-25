@@ -6,7 +6,7 @@
 }
 
 body {
-        background-color: #efe5e6;
+    background-color: #efe5e6;
 }
 
 #header {
@@ -21,9 +21,10 @@ body {
 #logo {
     background: url("../images/unicorn.png");
     background-size: cover;
-    background-color:#fadadd;
+    background-color:#efe5e6;
     height:80px;
     width:80px;
+    border-radius: 5px
 }
 
 #searchBox {
@@ -38,6 +39,7 @@ body {
     background-repeat: no-repeat;
     height:60px;
     width:60px;
+    border-radius: 5px
 }
 
 #searchInput {
@@ -129,7 +131,6 @@ body {
     width:200px;
     margin:15px;
     overflow:hidden;
-
 }
 
 .moviePoster {
