@@ -1,0 +1,42 @@
+@mixin modalStyle {
+    height:50%;
+    background-color:$contrastColor;
+}
+
+
+#modalContainer {
+    display:block; //acá va none
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 1;
+    
+    #modalBackground {
+        width:100vw;
+        height:100vh;
+        background-color:$transpBaseColor;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+            
+        #modal {
+            height:80%;
+            width:50%;
+
+                        
+            #upperModal {
+                height:50%;
+                background-color:lavender;
+                position:relative;
+                #fadedPoster {
+                    position:absolute;
+                    z-index:2;                    
+                }
+            }
+            
+            #lowerModal {
+                @include modalStyle()
+            }
+        }
+    }
+}

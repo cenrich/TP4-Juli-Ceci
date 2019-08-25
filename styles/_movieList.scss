@@ -1,0 +1,24 @@
+.movieList {
+    display:flex;
+    flex-wrap:wrap;
+    align-content: space-between;
+    .movieBox {
+        width:200px;
+        margin:15px;
+        overflow:hidden;
+        .moviePoster {
+            width:100%
+        }
+        .movieTitle {
+            font-size: 11px;
+            margin: 0;
+            letter-spacing: .5px;
+            transition: color .5s ease;
+            color: $baseTextColor;
+            text-decoration:none;
+            &:hover{
+                color: $textOnFocusColor;
+            }
+        }
+    }
+}

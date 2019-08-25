@@ -18,7 +18,7 @@
             <div id="logo"></div>
         </a>
         <div id="searchBox">
-            <div class="icon" id="searchIcon" onclick="searchFunction()"></div>
+            <div class="icon" id="searchIcon"></div>
             <input id="searchInput" placeholder="Ingresá acá una película que te ayudo" onfocus="this.value=''" onkeyup="searchFunction()">
         </div>
     </header>
@@ -83,15 +83,12 @@
     <section id="resultsContainer" class="bigContainer">
         <!-- <ul id="results" class="movieList"></ul> -->
     </section>
-    <!-- <section  id="catResContainer" class="bigContainer">
-        <ul id="categoryResults" class="movieList"></ul>
-    </section> -->
     <div id="modalContainer">
-        <div id="modalBackground">
+    <div id="modalBackground">
             <div id="modal">
                 <div id="upperModal">
                     <button type="button" onclick="toggleFunction()">Cerrar</button>
-                    <!-- <img id="fadedPoster"> -->
+                    <img id="fadedPoster">
                     <h2 id="mainTitle"></h2>
                     <p id="slogan"></p>
                 </div>

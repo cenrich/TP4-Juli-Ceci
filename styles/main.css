@@ -3,6 +3,7 @@
   padding: 0;
   margin: 0;
   list-style: none;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -17,8 +18,7 @@ body {
   background-color: #fff;
   width: 100%;
 }
-
-#logo {
+#header #logo {
   background: url("../images/unicorn.png");
   background-size: cover;
   background-color: #efe5e6;
@@ -31,21 +31,18 @@ body {
   height: 80px;
   padding: 10px;
 }
-
-#searchIcon {
+#searchBox #searchIcon {
   background: url("../images/search.png") center center;
   background-size: 40%;
   background-repeat: no-repeat;
   height: 60px;
   width: 60px;
-  border-radius: 5px;
 }
-
-#searchInput {
+#searchBox #searchInput {
   border: none;
   width: 70vw;
 }
-#searchInput:focus {
+#searchBox #searchInput:focus {
   outline: none;
 }
 
@@ -58,58 +55,52 @@ body {
   left: 0;
   background-color: #fff;
 }
-
-.button {
+#navBar .button {
   font-size: 10px;
   text-transform: uppercase;
   text-align: center;
 }
-.button a {
-  text-decoration: none;
-  color: gray;
-}
-.button a:visited {
-  color: gray;
-}
-
-#popularIcon {
+#navBar .button #popularIcon {
   background: url("../images/popular.png") center center;
   background-size: 40%;
   background-repeat: no-repeat;
   height: 60px;
   width: 60px;
 }
-
-#topRatedIcon {
+#navBar .button #topRatedIcon {
   background: url("../images/top_rated.png") center center;
   background-size: 40%;
   background-repeat: no-repeat;
   height: 60px;
   width: 60px;
 }
-
-#upcomingIcon {
+#navBar .button #upcomingIcon {
   background: url("../images/upcoming.png") center center;
   background-size: 40%;
   background-repeat: no-repeat;
   height: 60px;
   width: 60px;
 }
-
-#nowPlayingIcon {
+#navBar .button #nowPlayingIcon {
   background: url("../images/now_playing.png") center center;
   background-size: 40%;
   background-repeat: no-repeat;
   height: 60px;
   width: 60px;
 }
+#navBar .button a {
+  text-decoration: none;
+  color: gray;
+}
+#navBar .button a:visited {
+  color: gray;
+}
 
 .bigContainer {
   margin-top: 80px;
   margin-left: 80px;
 }
-
-#imageContainer {
+.bigContainer #imageContainer {
   background: url("../images/lego.jpg") top center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -122,18 +113,15 @@ body {
   flex-wrap: wrap;
   align-content: space-between;
 }
-
-.movieBox {
+.movieList .movieBox {
   width: 200px;
   margin: 15px;
   overflow: hidden;
 }
-
-.moviePoster {
+.movieList .movieBox .moviePoster {
   width: 100%;
 }
-
-.movieTitle {
+.movieList .movieBox .movieTitle {
   font-size: 11px;
   margin: 0;
   letter-spacing: 0.5px;
@@ -141,52 +129,41 @@ body {
   color: gray;
   text-decoration: none;
 }
-
-.movieTitle :hover {
+.movieList .movieBox .movieTitle:hover {
   color: black;
 }
 
 #modalContainer {
-  display: none;
+  display: block;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 99;
 }
-
-#modalBackground {
+#modalContainer #modalBackground {
   width: 100vw;
   height: 100vh;
-  background-color: rgba(250, 218, 221, 0.9);
+  background-color: rgba(239, 229, 230, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-#modal {
+#modalContainer #modalBackground #modal {
   height: 80%;
   width: 50%;
 }
-
-#upperModal {
+#modalContainer #modalBackground #modal #upperModal {
   height: 50%;
-  background-color: aqua;
+  background-color: #fff;
+  position: relative;
 }
-
-#lowerModal {
+#modalContainer #modalBackground #modal #upperModal #fadedPoster {
+  position: absolute;
+  z-index: -99;
+}
+#modalContainer #modalBackground #modal #lowerModal {
   height: 50%;
-  background-color: antiquewhite;
-}
-
-.catContainer {
-  font-family: sans-serif;
-}
-
-.titleSection {
-  font-size: 18px;
-  line-height: 18px;
-  font-weight: 50;
-  padding: 15px;
+  background-color: #fff;
 }
 
 .verTodas {
@@ -198,20 +175,23 @@ body {
   justify-content: space-between;
   padding: 16px 25px;
 }
-
-.aVerTodas {
+.verTodas .titleSection {
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 50;
+  padding: 15px;
+}
+.verTodas .aVerTodas {
   text-decoration: none;
   transition: color 0.5s ease;
-  color: grey;
+  color: gray;
   float: right;
 }
-
-.fas {
-  color: grey;
+.verTodas .aVerTodas:hover {
+  color: black;
 }
-
-.verTodas :hover {
-  color: #081c24;
+.verTodas .aVerTodas .fas {
+  color: gray;
 }
 
 /*# sourceMappingURL=main.css.map */

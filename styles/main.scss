@@ -1,3 +1,17 @@
+$baseColor: #efe5e6;
+$transpBaseColor:rgba(239,229,230,0.9);
+$contrastColor:#fff;
+$baseTextColor:gray;
+$textOnFocusColor:black;
+
+@mixin navButton ($url) {
+    background: url($url) center center;
+    background-size:40%;
+    background-repeat: no-repeat;
+    height:60px;
+    width:60px;
+}
+
 * {
     box-sizing: border-box;
     padding:0;
@@ -7,7 +21,7 @@
 }
 
 body {
-    background-color: #efe5e6;
+    background-color: $baseColor;
 }
 
 #header {
@@ -15,191 +29,54 @@ body {
     position:fixed;
     top:0;
     left:0;
-    background-color:#fff;
-    width:100%
+    background-color:$contrastColor;
+    width:100%;
+    #logo {
+        background: url("../images/unicorn.png");
+        background-size: cover;
+        background-color:$baseColor;
+        height:80px;
+        width:80px;
+    }
 }
 
-#logo {
-    background: url("../images/unicorn.png");
-    background-size: cover;
-    background-color:#efe5e6;
-    height:80px;
-    width:80px;
-}
 
 #searchBox {
     display:flex;
     height:80px;
     padding:10px;
-}
-
-#searchIcon {
-    background: url("../images/search.png") center center;
-    background-size:40%;
-    background-repeat: no-repeat;
-    height:60px;
-    width:60px;
-    border-radius: 5px
-}
-
-#searchInput {
-    border:none;
-    width:70vw;
-    &:focus {
-        outline:none;
+    #searchIcon {
+        @include navButton("../images/search.png");
     }
-}
-
-#navBar {
-    width:80px;
-    height:100vh;
-    padding:10px;
-    position: fixed;
-    top:80px;
-    left:0;
-    background-color:#fff;
-    // position:absolute;
-    // z-index: 999;
-}
-
-.button {
-    font-size: 10px;
-    text-transform: uppercase;
-    text-align:center;
-    a {
-        text-decoration: none;
-        color:gray;
-        &:visited {
-            color:gray;
+    #searchInput {
+        border:none;
+        width:70vw;
+        &:focus {
+            outline:none;
         }
     }
 }
 
-#popularIcon {
-    background: url("../images/popular.png") center center;
-    background-size:40%;
-    background-repeat: no-repeat;
-    height:60px;
-    width:60px;
-}
-
-#topRatedIcon {
-    background: url("../images/top_rated.png") center center;
-    background-size:40%;
-    background-repeat: no-repeat;
-    height:60px;
-    width:60px;
-}
-
-#upcomingIcon {
-    background: url("../images/upcoming.png") center center;
-    background-size:40%;
-    background-repeat: no-repeat;
-    height:60px;
-    width:60px;
-}
-
-#nowPlayingIcon {
-    background: url("../images/now_playing.png") center center;
-    background-size:40%;
-    background-repeat: no-repeat;
-    height:60px;
-    width:60px;
-}
+@import "navBar";
 
 .bigContainer {
     margin-top:80px;
     margin-left:80px;
+    #imageContainer {
+        background: url("../images/lego.jpg") top center;
+        background-size:cover;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        height:320px;
+        // opacity:0.5
+    }
 }
 
-#imageContainer {
-    background: url("../images/lego.jpg") top center;
-    background-size:cover;
-    background-repeat: no-repeat;
-    overflow: hidden;
-    height:320px;
-    // opacity:0.5
-}
+@import "movieList";
 
-.movieList {
-    display:flex;
-    flex-wrap:wrap;
-    align-content: space-between
-}
-
-.movieBox {
-    width:200px;
-    margin:15px;
-    overflow:hidden;
-}
-
-.moviePoster {
-    width:100%
-}
-
-.movieTitle {
-    font-size: 11px;
-    margin: 0;
-    letter-spacing: .5px;
-    transition: color .5s ease;
-    color: gray;
-    text-decoration:none;
-}
-
-.movieTitle :hover{
-    color: black;
-}
-
-// .moviePoster :hover span {
-//     width: 120%;
-// }
-
-#modalContainer {
-    display:block;
-    position: fixed;
-    top:0;
-    left:0;
-    z-index: 99;
-}
-
-#modalBackground {
-    width:100vw;
-    height:100vh;
-    background-color:rgba(250, 218, 221, 0.9);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-#modal {
-    height:80%;
-    width:50%;
-}
-
-#upperModal {
-    height:50%;
-    background-color:aqua;
-}
-
-#lowerModal {
-    height:50%;
-    background-color: antiquewhite
-}
-
-.catContainer {
-    font-family: sans-serif;
-    
-}
-
-.titleSection {
-    font-size: 18px;
-    line-height: 18px;
-    font-weight: 50;
-    padding: 15px;
-}
+@import "modal";
 
 .verTodas {
-    
     font-size: 12px;
     font-weight: 300;
     letter-spacing: .5px;  
@@ -207,19 +84,22 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 16px 25px;
-}
-
-.aVerTodas {
-    text-decoration: none;
-    transition: color .5s ease;
-    color: grey;
-    float: right;
-}
-
-.fas  {
-    color: grey;
-}
-
-.verTodas :hover {
-    color: #081c24;
+    .titleSection {
+        font-size: 18px;
+        line-height: 18px;
+        font-weight: 50;
+        padding: 15px;
+    }
+    .aVerTodas {
+        text-decoration: none;
+        transition: color .5s ease;
+        color: $baseTextColor;
+        float: right;
+        &:hover {
+            color: $textOnFocusColor;
+        }
+        .fas  {
+            color: $baseTextColor;
+        }
+    }
 }

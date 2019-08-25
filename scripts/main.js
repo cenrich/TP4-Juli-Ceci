@@ -1,4 +1,5 @@
 const apiKey="f800b0f5b9ae24d9ff462e770da4d3b3"
+const idParaPruebas=534259
 
 const clearAll = () => {
     document.getElementById("mainContainer").style.display="none"
@@ -12,6 +13,7 @@ const homePage = () => {
     populateCatHome("top_rated")
     populateCatHome("upcoming")
     populateCatHome("now_playing")
+    loadModal()//sacar esto
 }
 
 const populateCatHome = (category) => {
@@ -19,7 +21,7 @@ const populateCatHome = (category) => {
     container.innerHTML=""
     fetch(`https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}`) //(1) hago 2 fetch a esta url, la función se diferencia en las dos líneas orevuas y qué hago con el resultado
         .then(response => response.json())
-        .then(res => populateList(res.results.filter((e,i)=>i<5),container))
+        .then(res =>populateList(res.results.filter((e,i)=>i<5),container))
 }
 
 const populateList = (arrayOfMovies,container) =>{
@@ -46,13 +48,13 @@ const populateList = (arrayOfMovies,container) =>{
     })
 }    
 
-const loadModal = (movieId) =>{
-    fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`)
+const loadModal = () =>{ //acordate que acá iba movieId
+    fetch(`https://api.themoviedb.org/3/movie/${534259}?api_key=${apiKey}`) //acordate acá de reemplazar el número por movieId
         .then(response => response.json())
         .then(res => {
             // console.log(`https://image.tmdb.org/t/p/w500${res.poster_path}`) //acá tengo el problema del background
-            // const backgroundNode=document.getElementById("upperModal")
-            // backgroundNode.style.backgroundImage = "url(`https://image.tmdb.org/t/p/w500${res.poster_path}`)";
+            const backgroundNode=document.getElementById("fadedPoster")
+            backgroundNode.src = `https://image.tmdb.org/t/p/w500${res.poster_path}`
             const mainTitleNode = document.getElementById("mainTitle")
             mainTitleNode.innerText = res.title
             const descriptionNode =document.getElementById("movieDescription")
@@ -66,10 +68,10 @@ const loadModal = (movieId) =>{
     })
 }
 
-const toggleFunction = (movieId) => {
+const toggleFunction = (movieId) => { 
     var modal = document.getElementById("modalContainer");
     if (modal.style.display === "none") {
-        loadModal(movieId)
+        // loadModal(movieId) 
         modal.style.display = "block";
     } else {
         modal.style.display = "none";
