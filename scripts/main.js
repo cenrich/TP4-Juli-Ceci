@@ -13,7 +13,7 @@ const homePage = () => {
     populateCatHome("top_rated")
     populateCatHome("upcoming")
     populateCatHome("now_playing")
-    loadModal()//sacar esto
+    // loadModal()//sacar esto
 }
 
 const populateCatHome = (category) => {
@@ -48,8 +48,8 @@ const populateList = (arrayOfMovies,container) =>{
     })
 }    
 
-const loadModal = () =>{ //acordate que acá iba movieId
-    fetch(`https://api.themoviedb.org/3/movie/${534259}?api_key=${apiKey}`) //acordate acá de reemplazar el número por movieId
+const loadModal = (movieId) =>{ //acordate que acá iba movieId
+    fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`) //acordate acá de reemplazar el número por movieId
         .then(response => response.json())
         .then(res => {
             // console.log(`https://image.tmdb.org/t/p/w500${res.poster_path}`) //acá tengo el problema del background
@@ -71,7 +71,7 @@ const loadModal = () =>{ //acordate que acá iba movieId
 const toggleFunction = (movieId) => { 
     var modal = document.getElementById("modalContainer");
     if (modal.style.display === "none") {
-        // loadModal(movieId) 
+        loadModal(movieId) 
         modal.style.display = "block";
     } else {
         modal.style.display = "none";

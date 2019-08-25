@@ -134,11 +134,11 @@ body {
 }
 
 #modalContainer {
-  display: block;
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 99;
+  z-index: 1;
 }
 #modalContainer #modalBackground {
   width: 100vw;
@@ -154,12 +154,12 @@ body {
 }
 #modalContainer #modalBackground #modal #upperModal {
   height: 50%;
-  background-color: #fff;
+  background-color: lavender;
   position: relative;
 }
 #modalContainer #modalBackground #modal #upperModal #fadedPoster {
   position: absolute;
-  z-index: -99;
+  z-index: 2;
 }
 #modalContainer #modalBackground #modal #lowerModal {
   height: 50%;
