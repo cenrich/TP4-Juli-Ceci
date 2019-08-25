@@ -185,19 +185,19 @@ body {
     background-color: antiquewhite
 }
 
-#popularContainer {
+.catContainer {
     font-family: sans-serif;
     
 }
 
-#titleSection {
+.titleSection {
     font-size: 18px;
     line-height: 18px;
     font-weight: 50;
     padding: 15px;
 }
 
-#verTodas {
+.verTodas {
     
     font-size: 12px;
     font-weight: 300;
@@ -208,7 +208,7 @@ body {
     padding: 16px 25px;
 }
 
-#aVerTodas {
+.aVerTodas {
     text-decoration: none;
     transition: color .5s ease;
     color: grey;
@@ -219,6 +219,6 @@ body {
     color: grey;
 }
 
-#verTodas :hover {
+.verTodas :hover {
     color: #081c24;
 }

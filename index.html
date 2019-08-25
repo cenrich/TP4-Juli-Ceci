@@ -51,35 +51,41 @@
     </nav>
     <section id="mainContainer" class="bigContainer">
         <div id="imageContainer"></div>
-        <div id="popularContainer">
-            <div id="verTodas">
-                <h3 id="titleSection">Más vistas</h3>
-                <a id="aVerTodas" href="#" onclick="selectCategory('popular')">Ver todas <i class="fas fa-arrow-right"></i></a>
+        <div id="popularContainer" class="catContainer">
+            <div class="verTodas">
+                <h3 class="titleSection">Más vistas</h3>
+                <a class="aVerTodas" href="#" onclick="selectCategory('popular')">Ver todas <i class="fas fa-arrow-right"></i></a>
             </div>
             <ul id="popular"class="movieList"></ul>
         </div>
-        <div id="topRatedContainer">
-            <h3>Mejor puntuadas</h3>
-            <a href="#" onclick="selectCategory('top_rated')">Ver todas </a>
+        <div id="topRatedContainer" class="catContainer">
+            <div class="verTodas">
+                <h3 class="titleSection">Mejor puntuadas</h3>
+                <a class="aVerTodas" href="#" onclick="selectCategory('top_rated')">Ver todas <i class="fas fa-arrow-right"></i></a>
+            </div>
             <ul id="top_rated" class="movieList"></ul>
         </div>
-        <div id="upcomingContainer">
-            <h3>Pronto</h3>
-            <a href="#" onclick="selectCategory('upcoming')">Ver todas </a>
+        <div id="upcomingContainer" class="catContainer">
+            <div class="verTodas">
+                <h3 class="titleSection">Pronto</h3>
+                <a class="aVerTodas" href="#" onclick="selectCategory('upcoming')">Ver todas <i class="fas fa-arrow-right"></i></a>
+            </div>
             <ul id="upcoming" class="movieList"></ul>
         </div>
-        <div id="nowPlayingContainer">
-            <h3>En cartelera</h3>
-            <a href="#" onclick="selectCategory('now_playing')">Ver todas </a>
+        <div id="nowPlayingContainer" class="catContainer">
+            <div class="verTodas">
+                <h3 class="titleSection">En cartelera</h3>
+                <a class="aVerTodas" href="#" onclick="selectCategory('now_playing')">Ver todas <i class="fas fa-arrow-right"></i></a>
+            </div>
             <ul id="now_playing" class="movieList"></ul>
         </div>
     </section>
     <section id="resultsContainer" class="bigContainer">
-        <ul id="results" class="movieList"></ul>
+        <!-- <ul id="results" class="movieList"></ul> -->
     </section>
-    <section  id="catResContainer" class="bigContainer">
+    <!-- <section  id="catResContainer" class="bigContainer">
         <ul id="categoryResults" class="movieList"></ul>
-    </section>
+    </section> -->
     <div id="modalContainer">
         <div id="modalBackground">
             <div id="modal">
