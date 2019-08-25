@@ -5,6 +5,10 @@
   list-style: none;
 }
 
+body {
+  background-color: #efe5e6;
+}
+
 #header {
   display: flex;
   position: fixed;
@@ -17,9 +21,10 @@
 #logo {
   background: url("../images/unicorn.png");
   background-size: cover;
-  background-color: #fadadd;
+  background-color: #efe5e6;
   height: 80px;
   width: 80px;
+  border-radius: 5px;
 }
 
 #searchBox {
@@ -34,6 +39,7 @@
   background-repeat: no-repeat;
   height: 60px;
   width: 60px;
+  border-radius: 5px;
 }
 
 #searchInput {
@@ -99,8 +105,7 @@
   width: 60px;
 }
 
-#mainContainer {
-  background-color: #efe5e6;
+.bigContainer {
   margin-top: 80px;
   margin-left: 80px;
 }
@@ -113,6 +118,7 @@
   height: 320px;
 }
 
+<<<<<<< HEAD
 #popularContainer {
   font-family: sans-serif;
 }
@@ -150,7 +156,11 @@
 }
 
 #popularList {
+=======
+.movieList {
+>>>>>>> a74214f86c075236f5ba8c635b0fc68c6a91c3f0
   display: flex;
+  flex-wrap: wrap;
   align-content: space-between;
 }
 
@@ -164,6 +174,7 @@
   width: 100%;
 }
 
+<<<<<<< HEAD
 .movieTitle {
   font-size: 11px;
   margin: 0;
@@ -174,6 +185,38 @@
 
 .movieTitle :hover {
   color: black;
+=======
+#modalContainer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+
+#modalBackground {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(250, 218, 221, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#modal {
+  height: 80%;
+  width: 50%;
+}
+
+#upperModal {
+  height: 50%;
+  background-color: aqua;
+}
+
+#lowerModal {
+  height: 50%;
+  background-color: antiquewhite;
+>>>>>>> a74214f86c075236f5ba8c635b0fc68c6a91c3f0
 }
 
 /*# sourceMappingURL=main.css.map */
