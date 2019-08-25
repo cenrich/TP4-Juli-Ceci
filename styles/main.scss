@@ -120,48 +120,7 @@ body {
     // opacity:0.5
 }
 
-
-#popularContainer {
-    font-family: sans-serif;
-    
-}
-
-#titleSection {
-    font-size: 18px;
-    line-height: 18px;
-    font-weight: 50;
-    padding: 15px;
-}
-
-#verTodas {
-    
-    font-size: 12px;
-    font-weight: 300;
-    letter-spacing: .5px;  
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 25px;
-}
-
-#aVerTodas {
-    text-decoration: none;
-    transition: color .5s ease;
-    color: grey;
-    float: right;
-}
-
-.fas  {
-    color: grey;
-}
-
-#verTodas :hover {
-    color: #081c24;
-}
-
-
-
-#popularList {
+.movieList {
     display:flex;
     flex-wrap:wrap;
     align-content: space-between
@@ -202,14 +161,24 @@ body {
     z-index: 99;
 }
 
-.movieTitle :hover{
-    color: black;
+#modalBackground {
+    width:100vw;
+    height:100vh;
+    background-color:rgba(250, 218, 221, 0.9);
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-// .moviePoster :hover span {
-//     width: 120%;
-// }
+#modal {
+    height:80%;
+    width:50%;
+}
 
+#upperModal {
+    height:50%;
+    background-color:aqua;
+}
 
 #lowerModal {
     height:50%;
