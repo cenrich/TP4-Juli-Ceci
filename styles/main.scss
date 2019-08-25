@@ -2,7 +2,7 @@
     box-sizing: border-box;
     padding:0;
     margin:0;
-    list-style: none
+    list-style: none;
     font-family:"Roboto", sans-serif;
 }
 
@@ -155,7 +155,7 @@ body {
 // }
 
 #modalContainer {
-    display:none;
+    display:block;
     position: fixed;
     top:0;
     left:0;
