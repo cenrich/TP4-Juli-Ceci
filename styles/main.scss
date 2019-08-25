@@ -5,6 +5,7 @@
     list-style: none
 }
 
+
 #header {
     display:flex;
     position:fixed;
@@ -116,6 +117,47 @@
     // opacity:0.5
 }
 
+
+#popularContainer {
+    font-family: sans-serif;
+    
+}
+
+#titleSection {
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 50;
+    padding: 15px;
+}
+
+#verTodas {
+    
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: .5px;  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 25px;
+}
+
+#aVerTodas {
+    text-decoration: none;
+    transition: color .5s ease;
+    color: grey;
+    float: right;
+}
+
+.fas  {
+    color: grey;
+}
+
+#verTodas :hover {
+    color: #081c24;
+}
+
+
+
 #popularList {
     display:flex;
     align-content: space-between
@@ -131,3 +173,21 @@
 .moviePoster {
     width:100%
 }
+
+.movieTitle {
+    font-size: 11px;
+    margin: 0;
+    letter-spacing: .5px;
+    transition: color .5s ease;
+    color: gray;
+}
+
+.movieTitle :hover{
+    color: black;
+}
+
+// .moviePoster :hover span {
+//     width: 120%;
+// }
+
+

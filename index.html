@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;subset=cyrillic" rel="stylesheet">
     <link rel="icon" type="png" href="images/unicorn.png" />
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script src="scripts/main.js" type="text/javascript"></script>
 </head>
 
@@ -44,22 +45,28 @@
     <section id="mainContainer">
         <div id="imageContainer"></div>
         <div id="popularContainer">
-            <h3>Más vistas</h3>
+            <div id="verTodas">
+                <h3 id="titleSection">Más vistas</h3>
+                <a id="aVerTodas" href="/movies/popular" onclick="selectCategory('popular')">ver todas <i class="fas fa-arrow-right"></i></a> 
+            </div>
             <span id="popularCount"></span>
             <ul id="popularList"></ul>
         </div>
         <div id="topRatedContainer">
             <h3>Mejor puntuadas</h3>
+            <a id="verTodas">ver todas ::after</a>
             <span id="topRatedCount"></span>
             <ul id="topRatedList"></ul>
         </div>
         <div id="upcomingContainer">
             <h3>Pronto</h3>
+            <div  id="verTodas"><a>ver todas</a> <i class="fas fa-arrow-right"></i></div>
             <span id="upcomingCount"></span>
             <ul id="upcomingList"></ul>
         </div>
         <div id="nowPlayingContainer">
             <h3>En cartelera</h3>
+            <div  id="verTodas"><a>ver todas</a> <i class="fas fa-arrow-right"></i></div>
             <span id="nowPlayingCount"></span>
             <ul id="nowPlayingList"></ul>
         </div>
