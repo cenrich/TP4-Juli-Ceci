@@ -32,10 +32,12 @@ const populateList = (arrayOfMovies,container) =>{
         a.onclick = () =>toggleFunction(id)
         a.classList.add("movieTitle")
         const image = document.createElement("img")
-        image.src=`https://image.tmdb.org/t/p/w500/${poster_path}` //acá si no existe poster_path, a veces se saltea directamente la película
+        poster_path
+            ?image.src=`https://image.tmdb.org/t/p/w500/${poster_path}` 
+            :image.src="images/no-image.png"
         image.classList.add("moviePoster")
         const movieTitle = document.createElement("span")
-        movieTitle.innerText=title //acá para el caso de búsqueda me gustaría hacer como en clase
+        movieTitle.innerText=title 
         movieTitle.classList.add("movieTitle")
         a.appendChild(image)
         a.appendChild(movieTitle)
@@ -86,18 +88,15 @@ const searchFunction = () => {
 
 const printResults = (movies,query,totalResults) => {
     clearAll()
-    
     const resultsContainer = document.getElementById("resultsContainer")
     resultsContainer.innerHTML=""
     resultsContainer.style.display="block"
     resultsContainer.appendChild(setCatTitle(query,totalResults))
-    
     const results = document.createElement("ul")
     results.classList.add("movieList")
     results.id="results"
     populateList(movies,results)
-    resultsContainer.appendChild(results)
-    
+    resultsContainer.appendChild(results)    
     setButton(results,query)
 }
 
@@ -154,7 +153,6 @@ const loadMore = (query,currentPage) => {
     query === "popular"||query==="top_rated"||query==="upcoming"||query==="now_playing"
         ?url=`https://api.themoviedb.org/3/movie/${query}?api_key=${apiKey}&page=${currentPage}`
         :url=`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&page=${currentPage}`
-
     fetch(url)
         .then(response => response.json())
         .then(res => populateList(res.results,container))
