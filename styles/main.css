@@ -96,6 +96,34 @@ body {
   color: gray;
 }
 
+/* menu hamburguesa */
+.imagesNav {
+  width: 50px;
+  height: 50px;
+  display: none;
+}
+
+.menuHamburguesa {
+  display: none;
+}
+
+.text {
+  display: none;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .imagesNav {
+    display: block;
+  }
+
+  .menuHamburguesa {
+    display: block;
+  }
+
+  .text {
+    display: block;
+  }
+}
 .bigContainer {
   margin-top: 80px;
   margin-left: 80px;
@@ -143,27 +171,67 @@ body {
 #modalContainer #modalBackground {
   width: 100vw;
   height: 100vh;
-  background-color: rgba(239, 229, 230, 0.9);
+  background-color: rgba(239, 232, 229, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 #modalContainer #modalBackground #modal {
-  height: 80%;
-  width: 50%;
+  height: 600px;
+  width: 100%;
+  max-width: 768px;
+  position: relative;
 }
 #modalContainer #modalBackground #modal #upperModal {
   height: 50%;
-  background-color: lavender;
-  position: relative;
+  background-size: cover;
+  background-position: center;
 }
-#modalContainer #modalBackground #modal #upperModal #fadedPoster {
-  position: absolute;
-  z-index: 2;
+#modalContainer #modalBackground #modal #upperModal #upperModalCover {
+  background: rgba(239, 232, 229, 0.5);
+  height: 100%;
+  width: 100%;
 }
 #modalContainer #modalBackground #modal #lowerModal {
   height: 50%;
   background-color: #fff;
+}
+
+.textContainer {
+  width: 50%;
+  float: right;
+  padding: 50px;
+}
+.textContainer #mainTitle {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #5F3A3E;
+  font-weight: bolder;
+}
+.textContainer .modalSubtitle {
+  font-size: 1em;
+  margin: 10px 0;
+  color: #5F3A3E;
+  font-weight: bolder;
+}
+.textContainer .modalText {
+  color: gray;
+}
+
+#poster {
+  width: 40%;
+  position: absolute;
+  z-index: 1;
+  top: 10%;
+  left: 10%;
+}
+
+.closeButton {
+  margin: 5px;
+  background: #5F3A3E;
+  color: gray;
+  padding: 5px;
+  font-size: 1em;
 }
 
 .verTodas {

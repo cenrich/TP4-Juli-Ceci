@@ -32,3 +32,27 @@
     }
 }
 
+/* menu hamburguesa */
+.imagesNav {
+    width: 50px; 
+    height: 50px;
+    display: none;
+  }
+.menuHamburguesa {
+    display: none;
+}
+.text {
+    display: none;
+}
+@media (min-width: 320px) and (max-width: 480px){
+     .imagesNav{
+         display: block;
+     }
+     .menuHamburguesa{
+         display: block;
+     }
+     .text {
+        display: block;
+     }
+ }
+//

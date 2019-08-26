@@ -1,8 +1,10 @@
 $baseColor: #efe5e6;
-$transpBaseColor:rgba(239,229,230,0.9);
+$transpBaseColor:rgba(239, 232, 229,0.9);
+$transpBaseColor2:rgba(239,232,229,0.5);
 $contrastColor:#fff;
 $baseTextColor:gray;
 $textOnFocusColor:black;
+$textHighlight: #5F3A3E;
 
 @mixin navButton ($url) {
     background: url($url) center center;

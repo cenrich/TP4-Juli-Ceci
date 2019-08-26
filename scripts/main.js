@@ -52,26 +52,22 @@ const loadModal = (movieId) =>{ //acordate que acá iba movieId
     fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`) //acordate acá de reemplazar el número por movieId
         .then(response => response.json())
         .then(res => {
-            // console.log(`https://image.tmdb.org/t/p/w500${res.poster_path}`) //acá tengo el problema del background
-            const backgroundNode=document.getElementById("fadedPoster")
-            backgroundNode.src = `https://image.tmdb.org/t/p/w500${res.poster_path}`
-            const mainTitleNode = document.getElementById("mainTitle")
-            mainTitleNode.innerText = res.title
-            const descriptionNode =document.getElementById("movieDescription")
-            descriptionNode.innerText=res.overview
-            const genreNode = document.getElementById("genre")
+            document.getElementById("upperModal").style.backgroundImage = "url('"+`https://image.tmdb.org/t/p/w500${res.backdrop_path}`+"')"
+            document.getElementById("mainTitle").innerText = res.title
+            document.getElementById("tagline").innerText=res.tagline
+            document.getElementById("movieDescription").innerText=res.overview
             const genreList = []
             res.genres.forEach(({name})=>genreList.push(name))
-            genreNode.innerText= genreList.join(", ")
-            const releaseDateNode = document.getElementById("releaseDate")
-            releaseDateNode.innerText = res.release_date 
-    })
+            document.getElementById("genre").innerText= genreList.join(", ")
+            document.getElementById("releaseDate").innerText = res.release_date
+            document.getElementById("poster").src = `https://image.tmdb.org/t/p/w500${res.poster_path}`
+        })
 }
 
 const toggleFunction = (movieId) => { 
     var modal = document.getElementById("modalContainer");
     if (modal.style.display === "none") {
-        loadModal(movieId) 
+        loadModal(movieId) //acá anular para probar
         modal.style.display = "block";
     } else {
         modal.style.display = "none";
@@ -158,4 +154,11 @@ const loadMore = (query,currentPage) => {
     fetch(url)
         .then(response => response.json())
         .then(res => populateList(res.results,container))
+}
+
+// Menu de categorías (solo mobile)
+const toggleMenuMobile = () => {
+    let menuMobile = document.getElementById('menuMobile')
+    menuMobile.classList.toggle('open')
+    menuMobile.classList.toggle('closed')
 }
