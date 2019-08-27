@@ -1,24 +1,20 @@
 #modalContainer {
     display:none; //acá va none
     position: fixed;
-    top:0;
-    left:0;
-    z-index: 1;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    width: 100%;
+    height: 100vh;
+    background-color:$transpBaseColor;
+    overflow: auto;
 
     #modalBackground {
-        width:100vw;
-        height:100vh;
-        background-color:$transpBaseColor;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        
-        #modal {
-            height:600px;
-            width: 100%;
-            max-width: 768px;
-            position: relative;
-        
+        width: 100%;
+        max-width: 768px;
+        position: relative;
+        z-index: 5;
+              
             #upperModal {
                 height:50%;
                 background-size:cover;
@@ -35,31 +31,42 @@
                 height:50%;
                 background-color:$contrastColor;
             }
-        }
+        
     }
 }
 
-.textContainer {
+@mixin textBox ($margin,$padding) {
     width:50%;
     float:right;
-    padding:50px;
-    #mainTitle {
-        font-size:2em;
-        margin-bottom:10px;
-        color:$textHighlight;
-        font-weight:bolder;
-    }
-    .modalSubtitle {
-        font-size:1em;
-        margin:10px 0;
-        color:$textHighlight;
-        font-weight:bolder;   
-    }
-    .modalText {
-        color:$baseTextColor;
-    }
-
+    padding:$padding;
+    margin:$margin
 }
+
+.textContainer1 {
+    @include textBox(80px 0 0 0,30px)
+}
+
+.textContainer2 {
+    @include textBox(0, 30px)
+}
+
+#mainTitle {
+    font-size:2em;
+    margin-bottom:10px;
+    color:$textHighlight;
+    font-weight:bolder;
+}
+.modalSubtitle {
+    font-size:1em;
+    margin:10px 0;
+    color:$textHighlight;
+    font-weight:bolder;   
+}
+.modalText {
+    font-size:0.75em;
+    color:$textOnFocusColor;
+}
+
  #poster {
     width:40%;
     position:absolute;
@@ -73,5 +80,6 @@
     background:$textHighlight;
     color: $baseTextColor;
     padding: 5px;
-    font-size:1em
+    font-size:1em;
+    float:right
 }

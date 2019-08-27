@@ -98,30 +98,32 @@
         <!-- <ul id="results" class="movieList"></ul> -->
     </section>
     <div id="modalContainer">
-    <div id="modalBackground">
+        <div id="modalBackground">
             <div id="modal">
-                <img id="poster"></img>
-                <div id="upperModal">
-                    <div id="upperModalCover">
-                        <button class="closeButton" type="button" onclick="toggleFunction()">Cerrar</button>
-                        <div id="modalHeader" class="textContainer">
-                            <h2 id="mainTitle"></h2>
-                            <p id="tagline" class="modalText"></p>
+                <button class="closeButton" type="button" onclick="toggleFunction()">Cerrar</button>
+                <div class="modalMovie">
+                    <img id="poster"></img>
+                    <div id="upperModal">
+                        <div id="upperModalCover">
+                            <div id="modalHeader" class="textContainer1">
+                                <h2 id="mainTitle"></h2>
+                                <p id="tagline" class="modalText"></p>
+                            </div>
                         </div>
                     </div>
+                    <div id="lowerModal">
+                        <div class="textContainer2"> 
+                            <p id="movieDescription" class="modalText"></p>
+                            <div>
+                                <h4 class="modalSubtitle">GÉNERO</h4>
+                                <p id="genre" class="modalText"></p>
+                            </div>
+                            <div>
+                                <h4 class="modalSubtitle">FECHA DE LANZAMIENTO</h4>
+                                <p id="releaseDate" class="modalText"></p>
+                            </div>
+                        </div>
                 </div>
-                <div id="lowerModal">
-                    <div class="textContainer"> 
-                        <p id="movieDescription" class="modalText"></p>
-                        <div>
-                            <h4 class="modalSubtitle">GÉNERO</h4>
-                            <p id="genre" class="modalText"></p>
-                        </div>
-                        <div>
-                            <h4 class="modalSubtitle">FECHA DE LANZAMIENTO</h4>
-                            <p id="releaseDate" class="modalText"></p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
