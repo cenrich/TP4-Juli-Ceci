@@ -157,8 +157,21 @@ const loadMore = (query,currentPage) => {
 }
 
 // Menu de categorías (solo mobile)
-const toggleMenuMobile = () => {
-    let menuMobile = document.getElementById('menuMobile')
-    menuMobile.classList.toggle('open')
-    menuMobile.classList.toggle('closed')
-}
+
+const showHambur = () => {
+    let container = document.getElementById('menuHamb')
+    if (container.style.display === "none") {
+     container.style.display = "block";
+ } else {
+     container.style.display = "none";
+ }
+ }
+ 
+//  const showHambury = () => {
+//     let container = document.getElementById('menuHamb')
+//     if (container.style.display === "none") {
+//      container.style.display = "block";
+//  } else {
+//      container.style.display = "none";
+//  }
+//  }

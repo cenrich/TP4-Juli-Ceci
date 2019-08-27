@@ -4,6 +4,8 @@
   margin: 0;
   list-style: none;
   font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  color: black;
 }
 
 body {
@@ -96,19 +98,61 @@ body {
   color: gray;
 }
 
-/* menu hamburguesa */
-.imagesNav {
-  width: 50px;
-  height: 50px;
+#openBar {
   display: none;
+  display: flex;
 }
 
-.menuHamburguesa {
+#menuHamb {
+  height: calc(100vh - 50px);
+  width: 500px;
+  height: 350px;
+  padding: 10px;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  background-color: #fff;
   display: none;
 }
-
-.text {
-  display: none;
+#menuHamb .navImage {
+  font-size: 10px;
+  text-transform: uppercase;
+  text-align: center;
+}
+#menuHamb .navImage #popularIcon {
+  background: url("../images/popular.png") center center;
+  background-size: 40%;
+  background-repeat: no-repeat;
+  height: 60px;
+  width: 60px;
+}
+#menuHamb .navImage #topRatedIcon {
+  background: url("../images/top_rated.png") center center;
+  background-size: 40%;
+  background-repeat: no-repeat;
+  height: 60px;
+  width: 60px;
+}
+#menuHamb .navImage #upcomingIcon {
+  background: url("../images/upcoming.png") center center;
+  background-size: 40%;
+  background-repeat: no-repeat;
+  height: 60px;
+  width: 60px;
+}
+#menuHamb .navImage #nowPlayingIcon {
+  background: url("../images/now_playing.png") center center;
+  background-size: 40%;
+  background-repeat: no-repeat;
+  height: 60px;
+  width: 60px;
+}
+#menuHamb .navImage .text {
+  text-decoration: none;
+  color: gray;
+}
+#menuHamb .navImage .text:visited {
+  color: gray;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
@@ -121,6 +165,14 @@ body {
   }
 
   .text {
+    display: block;
+  }
+
+  #menuHamb {
+    display: block;
+  }
+
+  #openBar {
     display: block;
   }
 }
@@ -215,7 +267,8 @@ body {
   font-weight: bolder;
 }
 .textContainer .modalText {
-  color: gray;
+  color: black;
+  font-size: 0.7em;
 }
 
 #poster {

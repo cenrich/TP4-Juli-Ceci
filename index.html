@@ -21,6 +21,7 @@
             <div class="icon" id="searchIcon"></div>
             <input id="searchInput" placeholder="Ingresá acá una película que te ayudo" onfocus="this.value=''" onkeyup="searchFunction()">
         </div>
+        <div><button id="openBar" type="button" onclick="showHamburY()"><i class="fas fa-bars"></i></button></div>
     </header>
     <nav id="navBar">
         <ul>
@@ -49,19 +50,55 @@
             </li>
         </ul>
     </nav>
-     <!-- //MENU HAMBURGUESA -->
+<!-- //MENU HAMBURGUESA -->
+<nav id="menuHamb">
+        <div class="menuHamburguesa">
+            <!-- <button class="closeButton" type="button" onclick="toggleFunction()">Cerrar</button> -->
+            <button class="closeButton2" type="button" onclick="showHambur()"><i class="fas fa-times"></i></button>
+            <!-- <i class="fas fa-bars"></i> -->
+            <!-- <i class="fas fa-times"></i> -->
+        </div>
+        <ul class="navList">
+            <li class="navImage" onclick="selectCategory('popular')">
+                <a href="#">
+                    <div class="icon" id="popularIcon"></div>
+                    <p class="text">Más vistas</p>
+            </li>
+            <li class="navImage" onclick="selectCategory('top_rated')">
+                <a href="#">
+                    <div class="icon" id="topRatedIcon"></div>
+                    <p class="text">Mejor puntuadas</p>
+                </a>
+            </li>
+            <li class="navImage" onclick="selectCategory('upcoming')">
+                <a href="#" id="text1">
+                    <div class="icon" id="upcomingIcon"></div>
+                    <p class="text">Pronto</p>
+                </a>
+            </li>
+            <li class="navImage" onclick="selectCategory('now_playing')">
+                <a href="#">
+                    <div class="icon" id="nowPlayingIcon"></div>
+                    <p class="text">En cartel</p>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+     <!-- <SECtion id="menuHamb">
     <div class="menuHamburguesa">
         <i class="fas fa-bars"></i>
         <i class="fas fa-times"></i>
     </div>
     <ul class="navList">
         <li class="navImage">
-            <img class="imagesNav" src="images/popular.png" > <a class="text">Más vistas</a>
-            <img class="imagesNav" src="images/top_rated.png" > <a class="text">Mejor puntuadas</a>
-            <img class="imagesNav" src="images/upcoming.png" > <a class="text">Pronto</a>
-            <img class="imagesNav" src="images/now_playing.png" > <a class="text">En cartel</a>
+            <div><img class="imagesNav" src="images/popular.png" > <a class="text">Más vistas</a></div>
+            <div><img class="imagesNav" src="images/top_rated.png" > <a class="text">Mejor puntuadas</a></div>
+            <div><img class="imagesNav" src="images/upcoming.png" > <a class="text">Pronto</a></div>
+            <div><img class="imagesNav" src="images/now_playing.png" > <a class="text">En cartel</a></div>
         </li>
     </ul>
+</SECtion> -->
     <!-- // -->
     <section id="mainContainer" class="bigContainer">
         <div id="imageContainer"></div>

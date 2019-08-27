@@ -32,18 +32,81 @@
     }
 }
 
-/* menu hamburguesa */
-.imagesNav {
-    width: 50px; 
-    height: 50px;
+#openBar{
     display: none;
-  }
-.menuHamburguesa {
-    display: none;
+    display: flex;
 }
-.text {
+
+// /* menu hamburguesa */
+// .imagesNav {
+//     width: 50px; 
+//     height: 50px;
+//     display: none;
+//   }
+// .menuHamburguesa {
+//     display: none;
+// }
+// .text {
+//     display: none;
+// }
+
+// .navImage {
+//     align-content: inline;
+//     display: flex;
+//     flex-wrap: wrap;
+//     position: relative;
+// }
+
+// #menuHamb{
+//     height: calc(100vh - 50px);
+//     justify-content: center;
+//     width: 320px;
+//     height: 280px;
+//     position: fixed;
+//     background-color: white;
+//     display: none;
+//     align-items: center;
+//     justify-content: center;
+//     position: relative;
+// }
+
+// pueba 
+#menuHamb {
+    height: calc(100vh - 50px);
+    width: 500px;
+    height: 350px;
+    padding:10px;
+    position: fixed;
+    top:80px;
+    left:0;
+    background-color:$contrastColor;
     display: none;
+    .navImage {
+        font-size: 10px;
+        text-transform: uppercase;
+        text-align:center;
+        #popularIcon {
+            @include navButton("../images/popular.png");
+        }
+        #topRatedIcon {
+            @include navButton("../images/top_rated.png");
+        }
+        #upcomingIcon {
+            @include navButton("../images/upcoming.png"); 
+        }
+        #nowPlayingIcon {
+            @include navButton("../images/now_playing.png");
+        }
+        .text {
+            text-decoration: none;
+            color:$baseTextColor;
+            &:visited {
+                color:$baseTextColor;
+            }
+        }
+    }
 }
+
 @media (min-width: 320px) and (max-width: 480px){
      .imagesNav{
          display: block;
@@ -54,5 +117,10 @@
      .text {
         display: block;
      }
+     #menuHamb{
+        display: block;
+     }
+     #openBar{
+        display: block; 
+    }
  }
-//
