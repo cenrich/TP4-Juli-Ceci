@@ -66,6 +66,9 @@ body {
 .bigContainer {
     margin-top:80px;
     margin-left:80px;
+    @media (min-width: 320px) and (max-width: 480px) {
+        margin-left:0
+    }
     #imageContainer {
         background: url("../images/lego.jpg") top center;
         background-size:cover;

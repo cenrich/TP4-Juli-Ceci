@@ -22,7 +22,7 @@
         #nowPlayingIcon {
             @include navButton("../images/now_playing.png");
         }
-        a {
+        .a {
             text-decoration: none;
             color:$baseTextColor;
             &:visited {
@@ -30,11 +30,22 @@
             }
         }
     }
+    @media (min-width: 320px) and (max-width: 480px) {
+        display:none
+    }
 }
 
 #openBar{
     display: none;
+    position: absolute;
+    right: 45px;
+    top: 35px;
+}
+
+#searchBox{
     display: flex;
+    align-content:center;
+    position: relative;
 }
 
 // /* menu hamburguesa */
@@ -118,9 +129,13 @@
         display: block;
      }
      #menuHamb{
-        display: block;
+        display: none;
      }
      #openBar{
-        display: block; 
+        align-content: center;
+        color: black;
+        display: flex;
+        justify-content: center;
+
     }
  }

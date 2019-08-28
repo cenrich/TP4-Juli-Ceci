@@ -1,5 +1,4 @@
 const apiKey="f800b0f5b9ae24d9ff462e770da4d3b3"
-const idParaPruebas=534259
 
 const clearAll = () => {
     document.getElementById("mainContainer").style.display="none"
@@ -13,7 +12,6 @@ const homePage = () => {
     populateCatHome("top_rated")
     populateCatHome("upcoming")
     populateCatHome("now_playing")
-    // loadModal()//sacar esto
 }
 
 const populateCatHome = (category) => {
@@ -48,8 +46,8 @@ const populateList = (arrayOfMovies,container) =>{
     })
 }    
 
-const loadModal = (movieId) =>{ //acordate que acá iba movieId
-    fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`) //acordate acá de reemplazar el número por movieId
+const loadModal = (movieId) =>{
+    fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`) 
         .then(response => response.json())
         .then(res => {
             document.getElementById("upperModal").style.backgroundImage = "url('"+`https://image.tmdb.org/t/p/w500${res.backdrop_path}`+"')"
@@ -156,22 +154,11 @@ const loadMore = (query,currentPage) => {
         .then(res => populateList(res.results,container))
 }
 
-// Menu de categorías (solo mobile)
 
 const showHambur = () => {
     let container = document.getElementById('menuHamb')
     if (container.style.display === "none") {
      container.style.display = "block";
- } else {
+} else {
      container.style.display = "none";
- }
- }
- 
-//  const showHambury = () => {
-//     let container = document.getElementById('menuHamb')
-//     if (container.style.display === "none") {
-//      container.style.display = "block";
-//  } else {
-//      container.style.display = "none";
-//  }
-//  }
+}}

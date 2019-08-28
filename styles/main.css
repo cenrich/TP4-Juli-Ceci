@@ -90,17 +90,30 @@ body {
   height: 60px;
   width: 60px;
 }
-#navBar .button a {
+#navBar .button .a {
   text-decoration: none;
   color: gray;
 }
-#navBar .button a:visited {
+#navBar .button .a:visited {
   color: gray;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  #navBar {
+    display: none;
+  }
 }
 
 #openBar {
   display: none;
+  position: absolute;
+  right: 45px;
+  top: 35px;
+}
+
+#searchBox {
   display: flex;
+  align-content: center;
+  position: relative;
 }
 
 #menuHamb {
@@ -169,16 +182,24 @@ body {
   }
 
   #menuHamb {
-    display: block;
+    display: none;
   }
 
   #openBar {
-    display: block;
+    align-content: center;
+    color: black;
+    display: flex;
+    justify-content: center;
   }
 }
 .bigContainer {
   margin-top: 80px;
   margin-left: 80px;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  .bigContainer {
+    margin-left: 0;
+  }
 }
 .bigContainer #imageContainer {
   background: url("../images/lego.jpg") top center;
@@ -194,9 +215,10 @@ body {
   align-content: space-between;
 }
 .movieList .movieBox {
-  width: 200px;
-  margin: 15px;
+  width: 18%;
+  min-width: 150px;
   overflow: hidden;
+  margin: 10px;
 }
 .movieList .movieBox .moviePoster {
   width: 100%;
